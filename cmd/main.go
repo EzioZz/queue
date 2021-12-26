@@ -3,7 +3,7 @@ package main
 import (
 	"sync"
 
-	"github.com/smallnest/queue"
+	"github.com/EzioZz/queue"
 )
 
 func main() {
