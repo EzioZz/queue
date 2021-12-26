@@ -72,6 +72,11 @@ func (q *LKQueue) Dequeue() interface{} {
 	}
 }
 
+func (q *LKQueue) Top() interface{} {
+	head := load(&q.head)
+	return head.value
+}
+
 func load(p *unsafe.Pointer) (n *node) {
 	return (*node)(atomic.LoadPointer(p))
 }
