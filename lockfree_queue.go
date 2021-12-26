@@ -74,8 +74,9 @@ func (q *LKQueue) Dequeue() interface{} {
 
 func (q *LKQueue) Top() interface{} {
 	head := load(&q.head)
-	top := load((*unsafe.Pointer)(head.next))
-	return top.value
+	next := load(&head.next)
+	v := next.value
+	return v
 }
 
 func load(p *unsafe.Pointer) (n *node) {
